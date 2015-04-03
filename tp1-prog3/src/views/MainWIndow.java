@@ -93,7 +93,7 @@ public class MainWIndow {
 								.getSelectedItem(), (Numero) cmbNumero
 								.getSelectedItem(), (Topico) cmbTopico
 								.getSelectedItem());
-				PalabraService.getInstance().grabarSustantivo(sustantivo);
+				PalabraService.getInstance().agregarSustantivo(sustantivo);
 			}
 		});
 		btnAgregarSustantivo.setBounds(370, 31, 89, 23);
@@ -119,7 +119,7 @@ public class MainWIndow {
 			public void mouseClicked(MouseEvent e) {
 				Verbo verbo = new Verbo(textVerbo.getText(), (Tiempo) cmbTiempo
 						.getSelectedItem());
-				PalabraService.getInstance().grabarVerbo(verbo);
+				PalabraService.getInstance().agregarVerbo(verbo);
 			}
 		});
 		btnAgregarVerbo.setBounds(370, 87, 89, 23);
@@ -139,10 +139,20 @@ public class MainWIndow {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText());
-				PalabraService.getInstance().grabarAdjetivo(adjetivo);
+				PalabraService.getInstance().agregarAdjetivo(adjetivo);
 			}
 		});
 		btnAgregarAdjetivo.setBounds(370, 143, 89, 23);
 		frame.getContentPane().add(btnAgregarAdjetivo);
+		
+		JButton btnPersistir = new JButton("Persistir");
+		btnPersistir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				PalabraService.getInstance().PersistirTodo();
+			}
+		});
+		btnPersistir.setBounds(186, 212, 89, 23);
+		frame.getContentPane().add(btnPersistir);
 	}
 }

@@ -29,7 +29,7 @@ public class PersistenciaService {
 		encoder.close();
 	}
 
-	public <T> T getAll(String filename) throws FileNotFoundException {
+	public <T> T get(String filename) throws FileNotFoundException {
 		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(
 				new FileInputStream(filename)));
 		T o = (T) decoder.readObject();

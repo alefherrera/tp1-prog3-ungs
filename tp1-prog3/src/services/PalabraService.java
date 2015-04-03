@@ -1,12 +1,22 @@
 package services;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.Adjetivo;
 import models.Sustantivo;
 import models.Verbo;
 
 public class PalabraService {
+
+	private final String SUSTANTIVOSFILE = "sustantivos.xml";
+	private final String VERBOSFILE = "verbos.xml";
+	private final String ADJETIVOSFILE = "adjetivos.xml";
+
+	private List<Sustantivo> sustantivos;
+	private List<Verbo> verbos;
+	private List<Adjetivo> adjetivos;
 
 	private static PalabraService instance;
 
@@ -16,31 +26,45 @@ public class PalabraService {
 		return instance;
 	}
 
-	public void grabarSustantivo(Sustantivo sustantivo) {
+	private PalabraService() {
+		sustantivos = new ArrayList<Sustantivo>();
+		verbos = new ArrayList<Verbo>();
+		adjetivos = new ArrayList<Adjetivo>();
+		RecuperarTodo();
+	}
+
+	public void agregarSustantivo(Sustantivo sustantivo) {
+		sustantivos.add(sustantivo);
+	}
+
+	public void agregarVerbo(Verbo verbo) {
+		verbos.add(verbo);
+	}
+
+	public void agregarAdjetivo(Adjetivo adjetivo) {
+		adjetivos.add(adjetivo);
+	}
+
+	public void PersistirTodo() {
 		try {
-			PersistenciaService.getInstance()
-					.put(sustantivo, "sustantivos.xml");
+			PersistenciaService.getInstance().put(sustantivos, SUSTANTIVOSFILE);
+			PersistenciaService.getInstance().put(verbos, VERBOSFILE);
+			PersistenciaService.getInstance().put(adjetivos, ADJETIVOSFILE);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void grabarVerbo(Verbo verbo) {
+	private void RecuperarTodo() {
 		try {
-			PersistenciaService.getInstance().put(verbo, "verbos.xml");
+			sustantivos = PersistenciaService.getInstance().get(SUSTANTIVOSFILE);
+			verbos = PersistenciaService.getInstance().get(VERBOSFILE);
+			adjetivos = PersistenciaService.getInstance().get(ADJETIVOSFILE);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void grabarAdjetivo(Adjetivo adjetivo) {
-		try {
-			PersistenciaService.getInstance().put(adjetivo, "adjetivos.xml");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }
