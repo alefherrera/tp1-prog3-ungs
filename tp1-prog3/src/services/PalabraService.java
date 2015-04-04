@@ -1,8 +1,10 @@
 package services;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 
 import models.Adjetivo;
 import models.Sustantivo;
@@ -14,9 +16,9 @@ public class PalabraService {
 	private final String VERBOSFILE = "verbos.xml";
 	private final String ADJETIVOSFILE = "adjetivos.xml";
 
-	private List<Sustantivo> sustantivos;
-	private List<Verbo> verbos;
-	private List<Adjetivo> adjetivos;
+	private HashSet<Sustantivo> sustantivos;
+	private HashSet<Verbo> verbos;
+	private HashSet<Adjetivo> adjetivos;
 
 	private static PalabraService instance;
 
@@ -27,22 +29,27 @@ public class PalabraService {
 	}
 
 	private PalabraService() {
-		sustantivos = new ArrayList<Sustantivo>();
-		verbos = new ArrayList<Verbo>();
-		adjetivos = new ArrayList<Adjetivo>();
+		sustantivos = new HashSet<Sustantivo>();
+		verbos = new HashSet<Verbo>();
+		adjetivos = new HashSet<Adjetivo>();
+		
+		ensureFile(ADJETIVOSFILE, adjetivos);
+		ensureFile(SUSTANTIVOSFILE, sustantivos);
+		ensureFile(VERBOSFILE, verbos);
+		
 		RecuperarTodo();
 	}
 
-	public void agregarSustantivo(Sustantivo sustantivo) {
-		sustantivos.add(sustantivo);
+	public boolean agregarSustantivo(Sustantivo sustantivo) {
+		return sustantivos.add(sustantivo);
 	}
 
-	public void agregarVerbo(Verbo verbo) {
-		verbos.add(verbo);
+	public boolean agregarVerbo(Verbo verbo) {
+		return verbos.add(verbo);
 	}
 
-	public void agregarAdjetivo(Adjetivo adjetivo) {
-		adjetivos.add(adjetivo);
+	public boolean agregarAdjetivo(Adjetivo adjetivo) {
+		return adjetivos.add(adjetivo);
 	}
 
 	public void PersistirTodo() {
@@ -64,6 +71,18 @@ public class PalabraService {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+
+	private <T> void ensureFile(String fileName, T list) {
+		File archivo = new File(fileName);
+		if (!archivo.isFile()) {
+			try {
+				PersistenciaService.getInstance().put(list, fileName);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
