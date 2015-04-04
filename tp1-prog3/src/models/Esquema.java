@@ -1,23 +1,25 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.List;
 
-//esta clase se encarga de generar el esquema que va a tener una oracion.
-//por ej: sustantivo, verbo, sustantivo, adjetivo.
+/**
+ * Esta clase se encarga de generar el esquema que va a tener una oracion.
+ * por ej: sustantivo, verbo, sustantivo, adjetivo.
+ * @author aherrera
+ */
 public class Esquema {
 
 	public Esquema() {
-		estructura = new ArrayList<Palabra>();
+		estructura = new ArrayList<Class<? extends Palabra>>();
 	}
 
-	private List<Palabra> estructura;
+	private ArrayList<Class<? extends Palabra>> estructura;
 
-	public List<Palabra> get_estructura() {
+	public ArrayList<Class<? extends Palabra>> getEstructura() {
 		return estructura;
 	}
 
-	public void AgregarTermino(Palabra p) {
+	public void AgregarTermino(Class<? extends Palabra> p) {
 		estructura.add(p);
 	}
 

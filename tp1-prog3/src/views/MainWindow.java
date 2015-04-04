@@ -1,13 +1,22 @@
 package views;
 
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
 
 import models.Adjetivo;
 import models.Sustantivo;
@@ -17,17 +26,6 @@ import enums.Genero;
 import enums.Numero;
 import enums.Tiempo;
 import enums.Topico;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 public class MainWindow {
 
@@ -112,7 +110,7 @@ public class MainWindow {
 				if (PalabraService.getInstance().agregarSustantivo(sustantivo)){
 					lblEstado.setText("La palabra " + sustantivo.getTexto() + " ha sido agregada satisfactoriamente.");
 				}else{
-					lblEstado.setText("La palabra " + sustantivo.getTexto() + " ya se encuentra en el almacén de palabras.");
+					lblEstado.setText("La palabra " + sustantivo.getTexto() + " ya se encuentra en el almacén de sustantivos.");
 				}
 			}
 		});
@@ -142,7 +140,7 @@ public class MainWindow {
 				if (PalabraService.getInstance().agregarVerbo(verbo)){
 					lblEstado.setText("La palabra " + verbo.getTexto() + " ha sido agregada satisfactoriamente.");
 				}else{
-					lblEstado.setText("La palabra " + verbo.getTexto() + " ya se encuentra en el almacén de palabras.");
+					lblEstado.setText("La palabra " + verbo.getTexto() + " ya se encuentra en el almacén de verbos.");
 				}
 			}
 		});
@@ -166,7 +164,7 @@ public class MainWindow {
 				if (PalabraService.getInstance().agregarAdjetivo(adjetivo)){
 					lblEstado.setText("La palabra " + adjetivo.getTexto() + " ha sido agregada satisfactoriamente.");
 				}else{
-					lblEstado.setText("La palabra " + adjetivo.getTexto() + " ya se encuentra en el almacén de palabras.");
+					lblEstado.setText("La palabra " + adjetivo.getTexto() + " ya se encuentra en el almacén de adjetivos.");
 				}
 			}
 		});
@@ -180,7 +178,7 @@ public class MainWindow {
 				PalabraService.getInstance().PersistirTodo();
 			}
 		});
-		btnPersistir.setBounds(195, 212, 89, 23);
+		btnPersistir.setBounds(370, 211, 89, 23);
 		frmIngre.getContentPane().add(btnPersistir);
 		
 		JPanel panel = new JPanel();
@@ -191,5 +189,15 @@ public class MainWindow {
 		
 		lblEstado = new JLabel("Ingrese un sustantivo, verbo o adjetivo");
 		panel.add(lblEstado);
+		
+		JButton btnAgregarEsquema = new JButton("Agregar esquema");
+		btnAgregarEsquema.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EsquemaFrame nueva = new EsquemaFrame();
+				nueva.setVisible(true);
+			}
+		});
+		btnAgregarEsquema.setBounds(10, 211, 135, 23);
+		frmIngre.getContentPane().add(btnAgregarEsquema);
 	}
 }
