@@ -34,6 +34,9 @@ public class MainWindow {
 	private JTextField textVerbo;
 	private JTextField textAdjetivo;
 	private JLabel lblEstado;
+	private JComboBox<Genero> cmbGenero;
+	private JComboBox<Topico> cmbTopico;
+	private JComboBox<Tiempo> cmbTiempo;
 
 	/**
 	 * Launch the application.
@@ -84,12 +87,12 @@ public class MainWindow {
 		frmIngre.getContentPane().add(textSustantivo);
 		textSustantivo.setColumns(10);
 
-		JComboBox<Genero> cmbGenero = new JComboBox<Genero>();
+		cmbGenero = new JComboBox<Genero>();
 		cmbGenero.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
 		cmbGenero.setBounds(191, 32, 84, 20);
 		frmIngre.getContentPane().add(cmbGenero);
 
-		JComboBox<Topico> cmbTopico = new JComboBox<Topico>();
+		cmbTopico = new JComboBox<Topico>();
 		cmbTopico.setModel(new DefaultComboBoxModel<Topico>(Topico.values()));
 		cmbTopico.setBounds(285, 32, 75, 20);
 		frmIngre.getContentPane().add(cmbTopico);
@@ -126,7 +129,7 @@ public class MainWindow {
 		frmIngre.getContentPane().add(textVerbo);
 		textVerbo.setColumns(10);
 
-		JComboBox<Tiempo> cmbTiempo = new JComboBox<Tiempo>();
+		cmbTiempo = new JComboBox<Tiempo>();
 		cmbTiempo.setModel(new DefaultComboBoxModel<Tiempo>(Tiempo.values()));
 		cmbTiempo.setBounds(191, 88, 84, 20);
 		frmIngre.getContentPane().add(cmbTiempo);
