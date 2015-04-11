@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object class="java.lang.Enum" id="Numero0" method="valueOf">
+      <class>enums.Numero</class>
+      <string>SINGULAR</string>
+     </object>
+    </void>
+    <void property="persona">
+     <object class="java.lang.Enum" id="Persona0" method="valueOf">
+      <class>enums.Persona</class>
+      <string>TERCERA</string>
+     </object>
+    </void>
+    <void property="texto">
+     <string>mato</string>
+    </void>
+    <void property="tiempo">
+     <object class="java.lang.Enum" id="Tiempo0" method="valueOf">
+      <class>enums.Tiempo</class>
+      <string>PASADO</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>corrio</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>ataco</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>mordio</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>muere</string>
+    </void>
+    <void property="tiempo">
+     <object class="java.lang.Enum" method="valueOf">
+      <class>enums.Tiempo</class>
+      <string>PRESENTE</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object class="java.lang.Enum" id="Numero1" method="valueOf">
+      <class>enums.Numero</class>
+      <string>PLURAL</string>
+     </object>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>mataron</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>comieron</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object class="java.lang.Enum" id="Numero0" method="valueOf">
+      <class>enums.Numero</class>
+      <string>SINGULAR</string>
+     </object>
+    </void>
+    <void property="texto">
+     <string>rudo</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>gordo</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>flaco</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>lindo</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>feo</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>hambriento</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

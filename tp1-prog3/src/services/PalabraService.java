@@ -83,14 +83,16 @@ public class PalabraService {
 	}
 	
 	public String traerPalabra(Class<? extends Palabra> c){
+		RandomService rs = RandomService.getInstance();
+		
 		if(c.equals(Adjetivo.class)){
-			return adjetivos.get(new Random().nextInt(adjetivos.size())).getTexto();
+			return rs.randomPalabra(adjetivos);
 		}
 		else if(c.equals(Verbo.class)){
-			return verbos.get(new Random().nextInt(verbos.size())).getTexto();
+			return rs.randomPalabra(sustantivos);
 		}
 		else if(c.equals(Sustantivo.class)){
-			return sustantivos.get(new Random().nextInt(sustantivos.size())).getTexto();
+			return rs.randomPalabra(sustantivos);
 		}
 		return "";
 	}

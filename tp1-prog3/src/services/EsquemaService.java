@@ -3,7 +3,8 @@ package services;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.Esquema;
 
@@ -13,7 +14,7 @@ public class EsquemaService {
 
 	private static final String ESQUEMASFILE = "esquemas.xml";
 
-	private HashSet<Esquema> esquemas;
+	private List<Esquema> esquemas;
 
 	private static EsquemaService instance;
 
@@ -24,12 +25,18 @@ public class EsquemaService {
 	}
 
 	private EsquemaService() {
-		esquemas = new HashSet<Esquema>();
+		esquemas = new ArrayList<Esquema>();
 		ensureFile(ESQUEMASFILE, esquemas);
 		RecuperarTodo();
 	}
-
+	
+	public List<Esquema> getEsquemas(){
+		return esquemas;
+	}
+	
 	public boolean agregarEsquema(Esquema esquema){
+		if(esquemas.contains(esquema))
+			return false;
 		return esquemas.add(esquema);
 	}
 	
@@ -62,5 +69,4 @@ public class EsquemaService {
 			}
 		}
 	}
-
 }

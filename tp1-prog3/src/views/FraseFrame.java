@@ -55,12 +55,8 @@ public class FraseFrame extends JFrame {
 		btnFrases = new JButton("Frases");
 		btnFrases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Esquema esq = new Esquema();
-				esq.AgregarTermino(Sustantivo.class);
-				esq.AgregarTermino(Verbo.class);
-				esq.AgregarTermino(Adjetivo.class);
 				OracionService os = OracionService.getInstance();
-				lblFrase.setText("Frase: " + os.GenerarOracion(esq,Topico.ACCION));	
+				lblFrase.setText("Frase: " + os.GenerarOracion(Topico.ACCION));	
 			}
 		});
 		contentPane.add(btnFrases, BorderLayout.NORTH);
