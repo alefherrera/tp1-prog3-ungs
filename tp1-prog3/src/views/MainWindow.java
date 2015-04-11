@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.BevelBorder;
 
 import models.Adjetivo;
@@ -24,9 +26,9 @@ import models.Verbo;
 import services.PalabraService;
 import enums.Genero;
 import enums.Numero;
+import enums.Persona;
 import enums.Tiempo;
 import enums.Topico;
-import enums.Persona;
 
 public class MainWindow {
 
@@ -53,6 +55,12 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
+					for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				        if ("Nimbus".equals(info.getName())) {
+				            UIManager.setLookAndFeel(info.getClassName());
+				            break;
+				        }
+				    }
 					window.frmIngre.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
