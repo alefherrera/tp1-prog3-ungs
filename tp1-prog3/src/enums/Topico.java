@@ -5,4 +5,8 @@ public enum Topico {
 	,ROMANCE
 	,ACCION
 	,TERROR
+	,NATURALEZA
+	,ESPECTACULO
+	,TECNOLOGIA
+	,ECONOMIA
 }
