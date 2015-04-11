@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.BevelBorder;
 
 import models.Adjetivo;
@@ -24,9 +26,9 @@ import models.Verbo;
 import services.PalabraService;
 import enums.Genero;
 import enums.Numero;
+import enums.Persona;
 import enums.Tiempo;
 import enums.Topico;
-import enums.Persona;
 
 public class MainWindow {
 
@@ -42,7 +44,6 @@ public class MainWindow {
 	private JComboBox<Persona> cmbPersonaVerbo;
 	private JComboBox<Numero> cmbNumeroVerbo;
 	private JComboBox<Numero> cmbNumeroAdjetivo;
-	private JComboBox<Persona> cmbPersonaAdjetivo;
 	private JComboBox<Genero> cmbGeneroAdjetivo;
 
 	/**
@@ -53,6 +54,12 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
+					for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				        if ("Nimbus".equals(info.getName())) {
+				            UIManager.setLookAndFeel(info.getClassName());
+				            break;
+				        }
+				    }
 					window.frmIngre.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -196,7 +203,6 @@ public class MainWindow {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText(),
-						(Persona) cmbPersonaAdjetivo.getSelectedItem(),
 						(Genero) cmbGeneroAdjetivo.getSelectedItem(),
 						(Numero) cmbNumeroAdjetivo.getSelectedItem());
 				if (PalabraService.getInstance().agregarAdjetivo(adjetivo)) {
@@ -219,12 +225,6 @@ public class MainWindow {
 		cmbGeneroAdjetivo.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
 		cmbGeneroAdjetivo.setBounds(372, 144, 171, 20);
 		frmIngre.getContentPane().add(cmbGeneroAdjetivo);
-
-		cmbPersonaAdjetivo = new JComboBox<Persona>();
-		cmbPersonaAdjetivo.setModel(new DefaultComboBoxModel<Persona>(Persona
-				.values()));
-		cmbPersonaAdjetivo.setBounds(553, 144, 171, 20);
-		frmIngre.getContentPane().add(cmbPersonaAdjetivo);
 		btnAgregarAdjetivo.setBounds(896, 143, 89, 23);
 		frmIngre.getContentPane().add(btnAgregarAdjetivo);
 
