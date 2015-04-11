@@ -18,7 +18,10 @@ public class OracionService {
 
 	}
 
-	public String GenerarOracion(Esquema esquema, Topico tema) {
+	public String GenerarOracion(Topico tema) {
+		RandomService rs = RandomService.getInstance();
+		Esquema esquema = rs.randomEsquema();
+		
 		String result = new String();
 		PalabraService pal  = PalabraService.getInstance();
 		
