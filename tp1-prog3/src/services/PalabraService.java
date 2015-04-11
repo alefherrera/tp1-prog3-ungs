@@ -1,11 +1,16 @@
 package services;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 
 import models.Adjetivo;
+import models.Palabra;
 import models.Sustantivo;
 import models.Verbo;
 
@@ -15,9 +20,9 @@ public class PalabraService {
 	private final String VERBOSFILE = "verbos.xml";
 	private final String ADJETIVOSFILE = "adjetivos.xml";
 
-	private HashSet<Sustantivo> sustantivos;
-	private HashSet<Verbo> verbos;
-	private HashSet<Adjetivo> adjetivos;
+	private List<Sustantivo> sustantivos;
+	private List<Verbo> verbos;
+	private List<Adjetivo> adjetivos;
 
 	private static PalabraService instance;
 
@@ -28,9 +33,9 @@ public class PalabraService {
 	}
 
 	private PalabraService() {
-		sustantivos = new HashSet<Sustantivo>();
-		verbos = new HashSet<Verbo>();
-		adjetivos = new HashSet<Adjetivo>();
+		sustantivos = new ArrayList<Sustantivo>();
+		verbos = new ArrayList<Verbo>();
+		adjetivos = new ArrayList<Adjetivo>();
 		
 		ensureFile(ADJETIVOSFILE, adjetivos);
 		ensureFile(SUSTANTIVOSFILE, sustantivos);
@@ -61,7 +66,8 @@ public class PalabraService {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	private void RecuperarTodo() {
 		try {
 			sustantivos = PersistenciaService.getInstance().get(SUSTANTIVOSFILE);
@@ -72,6 +78,20 @@ public class PalabraService {
 			e.printStackTrace();
 		}
 	}
+	
+	public String traerPalabra(Class<? extends Palabra> c){
+		if(c.equals(Adjetivo.class)){
+			return adjetivos.get(new Random().nextInt(adjetivos.size())).getTexto();
+		}
+		else if(c.equals(Verbo.class)){
+			return verbos.get(new Random().nextInt(verbos.size())).getTexto();
+		}
+		else if(c.equals(Sustantivo.class)){
+			return sustantivos.get(new Random().nextInt(sustantivos.size())).getTexto();
+		}
+		return "";
+	}
+	
 
 	private <T> void ensureFile(String fileName, T list) {
 		File archivo = new File(fileName);

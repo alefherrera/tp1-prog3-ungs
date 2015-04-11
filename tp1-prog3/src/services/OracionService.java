@@ -1,6 +1,7 @@
 package services;
 
 import models.Esquema;
+import models.Palabra;
 import enums.Topico;
 
 public class OracionService {
@@ -19,7 +20,12 @@ public class OracionService {
 
 	public String GenerarOracion(Esquema esquema, Topico tema) {
 		String result = new String();
-		return result;
+		PalabraService pal  = PalabraService.getInstance();
+		
+		for (Class<? extends Palabra> p : esquema.getEstructura()) {
+			result += pal.traerPalabra(p) + " " ;
+		} 
+		return result.substring(0,result.length() - 1) + ".";
 	}
 
 }
