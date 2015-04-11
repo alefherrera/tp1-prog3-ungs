@@ -44,7 +44,6 @@ public class MainWindow {
 	private JComboBox<Persona> cmbPersonaVerbo;
 	private JComboBox<Numero> cmbNumeroVerbo;
 	private JComboBox<Numero> cmbNumeroAdjetivo;
-	private JComboBox<Persona> cmbPersonaAdjetivo;
 	private JComboBox<Genero> cmbGeneroAdjetivo;
 
 	/**
@@ -204,7 +203,6 @@ public class MainWindow {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText(),
-						(Persona) cmbPersonaAdjetivo.getSelectedItem(),
 						(Genero) cmbGeneroAdjetivo.getSelectedItem(),
 						(Numero) cmbNumeroAdjetivo.getSelectedItem());
 				if (PalabraService.getInstance().agregarAdjetivo(adjetivo)) {
@@ -227,12 +225,6 @@ public class MainWindow {
 		cmbGeneroAdjetivo.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
 		cmbGeneroAdjetivo.setBounds(372, 144, 171, 20);
 		frmIngre.getContentPane().add(cmbGeneroAdjetivo);
-
-		cmbPersonaAdjetivo = new JComboBox<Persona>();
-		cmbPersonaAdjetivo.setModel(new DefaultComboBoxModel<Persona>(Persona
-				.values()));
-		cmbPersonaAdjetivo.setBounds(553, 144, 171, 20);
-		frmIngre.getContentPane().add(cmbPersonaAdjetivo);
 		btnAgregarAdjetivo.setBounds(896, 143, 89, 23);
 		frmIngre.getContentPane().add(btnAgregarAdjetivo);
 
