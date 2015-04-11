@@ -5,29 +5,33 @@ import java.util.Random;
 
 import models.Esquema;
 import models.Palabra;
+import enums.Numero;
 
 public class RandomService {
 	private static RandomService instance;
-	
-	public static RandomService getInstance(){
-		if(instance == null)
-			instance = new RandomService(); 
+
+	public static RandomService getInstance() {
+		if (instance == null)
+			instance = new RandomService();
 		return instance;
 	}
-	
-	private RandomService(){
-	
+
+	private RandomService() {
+
 	}
-	
-	public Esquema randomEsquema(){
+
+	public Esquema randomEsquema() {
 		EsquemaService es = EsquemaService.getInstance();
 		List<Esquema> esq = es.getEsquemas();
 		return esq.get(new Random().nextInt(esq.size()));
 	}
-	
-	
-	public String randomPalabra(List<? extends Palabra> arr ){
-		return arr.get(new Random().nextInt(arr.size())).getTexto();
+
+	public Palabra randomPalabra(List<? extends Palabra> arr, Numero numero) {
+		Palabra result = null;
+		do {
+			result = arr.get(new Random().nextInt(arr.size()));
+		} while (result.getNumero() != numero || numero == null);
+		return result;
 	}
-	
+
 }
