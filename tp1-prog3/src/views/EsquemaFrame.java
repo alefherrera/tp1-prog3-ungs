@@ -1,30 +1,34 @@
 package views;
 
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import models.Adjetivo;
 import models.Esquema;
-import models.Palabra;
 import models.Sustantivo;
 import models.Verbo;
 import services.EsquemaService;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class EsquemaFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JList<Class<? extends Palabra>> lstEsquema;
-	DefaultComboBoxModel<Class<? extends Palabra>> modelo;
+	private JLabel lblEsquema;
+	private Esquema nuevoEsquema = null;
 
 	/**
 	 * Launch the application.
@@ -52,61 +56,83 @@ public class EsquemaFrame extends JFrame {
 				EsquemaService.getInstance().PersistirTodo();
 			}
 		});
+		setTitle("Agregar Esquema");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 457, 217);
+		setBounds(100, 100, 495, 182);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lstEsquema = new JList<Class<? extends Palabra>>();
-		modelo = new DefaultComboBoxModel<Class<? extends Palabra>>();
-		lstEsquema.setModel(modelo);
-		lstEsquema.setBounds(125, 166, 206, -150);
-		contentPane.add(lstEsquema);
+		nuevoEsquema = new Esquema();
 
 		JButton btnSustantivo = new JButton("Sustantivo");
 		btnSustantivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				modelo.addElement(Sustantivo.class);
+				nuevoEsquema.AgregarTermino(Sustantivo.class);
+				updateLabel();
 			}
 		});
-		btnSustantivo.setBounds(10, 11, 89, 23);
+		btnSustantivo.setBounds(55, 11, 89, 23);
 		contentPane.add(btnSustantivo);
 
 		JButton btnAdjetivo = new JButton("Adjetivo");
 		btnAdjetivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modelo.addElement(Adjetivo.class);
+				nuevoEsquema.AgregarTermino(Adjetivo.class);
+				updateLabel();
 			}
 		});
-		btnAdjetivo.setBounds(10, 45, 89, 23);
+		btnAdjetivo.setBounds(199, 11, 89, 23);
 		contentPane.add(btnAdjetivo);
 
 		JButton btnVerbo = new JButton("Verbo");
 		btnVerbo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modelo.addElement(Verbo.class);
+				nuevoEsquema.AgregarTermino(Verbo.class);
+				updateLabel();
 			}
 		});
-		btnVerbo.setBounds(10, 79, 89, 23);
+		btnVerbo.setBounds(343, 11, 89, 23);
 		contentPane.add(btnVerbo);
 
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Esquema nuevoEsquema = new Esquema();
-				for (int i = 0; i < modelo.getSize() ; i++) {
-					nuevoEsquema.AgregarTermino(modelo.getElementAt(i));
-				}
 				EsquemaService.getInstance().agregarEsquema(nuevoEsquema);
-				modelo.removeAllElements();
+				nuevoEsquema = new Esquema();
+				updateLabel();
 			}
 		});
-		btnGuardar.setBounds(345, 11, 89, 23);
+		btnGuardar.setBounds(295, 81, 89, 23);
 		contentPane.add(btnGuardar);
 
-	}
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null,
+				null));
+		panel.setBounds(0, 122, 489, 31);
+		contentPane.add(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 
+		lblEsquema = new JLabel("");
+		panel.add(lblEsquema);
+
+		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				nuevoEsquema.borrarUltimo();
+				updateLabel();
+			}
+		});
+		btnBorrar.setToolTipText("Borrar el ultimo termino");
+		btnBorrar.setBounds(103, 81, 89, 23);
+		contentPane.add(btnBorrar);
+
+	}
+	
+	private void updateLabel(){
+		lblEsquema.setText(nuevoEsquema.toString());
+	}
+	
 }
