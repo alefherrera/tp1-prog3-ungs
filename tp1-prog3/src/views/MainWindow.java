@@ -88,7 +88,7 @@ public class MainWindow {
 				PalabraService.getInstance().PersistirTodo();
 			}
 		});
-		frmIngre.setBounds(100, 100, 1001, 370);
+		frmIngre.setBounds(100, 100, 1001, 324);
 		frmIngre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmIngre.getContentPane().setLayout(null);
 
@@ -241,7 +241,7 @@ public class MainWindow {
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null,
 				null));
-		panel.setBounds(0, 266, 480, 31);
+		panel.setBounds(0, 266, 995, 31);
 		frmIngre.getContentPane().add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 
