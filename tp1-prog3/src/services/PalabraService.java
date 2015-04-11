@@ -89,7 +89,7 @@ public class PalabraService {
 			return rs.randomPalabra(adjetivos);
 		}
 		else if(c.equals(Verbo.class)){
-			return rs.randomPalabra(sustantivos);
+			return rs.randomPalabra(verbos);
 		}
 		else if(c.equals(Sustantivo.class)){
 			return rs.randomPalabra(sustantivos);
