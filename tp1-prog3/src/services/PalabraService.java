@@ -45,14 +45,17 @@ public class PalabraService {
 	}
 
 	public boolean agregarSustantivo(Sustantivo sustantivo) {
+		if (sustantivos.contains(sustantivo)) return false;
 		return sustantivos.add(sustantivo);
 	}
 
 	public boolean agregarVerbo(Verbo verbo) {
+		if (verbos.contains(verbo)) return false;
 		return verbos.add(verbo);
 	}
 
 	public boolean agregarAdjetivo(Adjetivo adjetivo) {
+		if (adjetivos.contains(adjetivo)) return false;
 		return adjetivos.add(adjetivo);
 	}
 

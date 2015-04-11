@@ -54,12 +54,13 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
-					for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				        if ("Nimbus".equals(info.getName())) {
-				            UIManager.setLookAndFeel(info.getClassName());
-				            break;
-				        }
-				    }
+					for (LookAndFeelInfo info : UIManager
+							.getInstalledLookAndFeels()) {
+						if ("Nimbus".equals(info.getName())) {
+							UIManager.setLookAndFeel(info.getClassName());
+							break;
+						}
+					}
 					window.frmIngre.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -120,17 +121,25 @@ public class MainWindow {
 		JButton btnAgregarSustantivo = new JButton("Agregar");
 		btnAgregarSustantivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnAgregarSustantivo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+				if (textSustantivo.getText().isEmpty()){
+					lblEstado.setText("Debe ingresar algo.");
+					return;
+				}
+				
+				// Todas las palabras que terminan con S o X pueden ser usadas
+				// en plural
+				Numero nro = null;
+				if (textSustantivo.getText().toLowerCase().endsWith("s")
+						|| textSustantivo.getText().toLowerCase().endsWith("x"))
+					nro = Numero.PLURAL;
+				else
+					nro = Numero.SINGULAR;
+
 				Sustantivo sustantivo = new Sustantivo(
-						textSustantivo.getText(), (Genero) cmbGenero
-								.getSelectedItem(), textSustantivo.getText()
-								.toLowerCase().endsWith("s") ? Numero.PLURAL
-								: Numero.SINGULAR, (Topico) cmbTopico
-								.getSelectedItem());
+						textSustantivo.getText(),
+						(Genero) cmbGenero.getSelectedItem(),
+						nro,
+						(Topico) cmbTopico.getSelectedItem());
 				if (PalabraService.getInstance().agregarSustantivo(sustantivo)) {
 					lblEstado.setText("La palabra " + sustantivo.getTexto()
 							+ " ha sido agregada satisfactoriamente.");
@@ -164,9 +173,12 @@ public class MainWindow {
 		frmIngre.getContentPane().add(cmbTiempo);
 
 		JButton btnAgregarVerbo = new JButton("Agregar");
-		btnAgregarVerbo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnAgregarVerbo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (textVerbo.getText().isEmpty()){
+					lblEstado.setText("Debe ingresar algo.");
+					return;
+				}
 				Verbo verbo = new Verbo(textVerbo.getText(), (Tiempo) cmbTiempo
 						.getSelectedItem(), (Persona) cmbPersonaVerbo
 						.getSelectedItem(), (Numero) cmbNumeroVerbo
@@ -199,9 +211,12 @@ public class MainWindow {
 		textAdjetivo.setColumns(10);
 
 		JButton btnAgregarAdjetivo = new JButton("Agregar");
-		btnAgregarAdjetivo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnAgregarAdjetivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textAdjetivo.getText().isEmpty()){
+					lblEstado.setText("Debe ingresar algo.");
+					return;
+				}
 				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText(),
 						(Genero) cmbGeneroAdjetivo.getSelectedItem(),
 						(Numero) cmbNumeroAdjetivo.getSelectedItem());
@@ -214,15 +229,15 @@ public class MainWindow {
 				}
 			}
 		});
-
 		cmbNumeroAdjetivo = new JComboBox<Numero>();
 		cmbNumeroAdjetivo.setModel(new DefaultComboBoxModel<Numero>(Numero
 				.values()));
 		cmbNumeroAdjetivo.setBounds(191, 144, 171, 20);
 		frmIngre.getContentPane().add(cmbNumeroAdjetivo);
-		
+
 		cmbGeneroAdjetivo = new JComboBox<Genero>();
-		cmbGeneroAdjetivo.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
+		cmbGeneroAdjetivo.setModel(new DefaultComboBoxModel<Genero>(Genero
+				.values()));
 		cmbGeneroAdjetivo.setBounds(372, 144, 171, 20);
 		frmIngre.getContentPane().add(cmbGeneroAdjetivo);
 		btnAgregarAdjetivo.setBounds(896, 143, 89, 23);
