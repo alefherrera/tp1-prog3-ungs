@@ -30,7 +30,7 @@ public class RandomService {
 		Palabra result = null;
 		do {
 			result = arr.get(new Random().nextInt(arr.size()));
-		} while (result.getNumero() != numero || numero == null);
+		} while (result.getNumero() != numero || numero != null);
 		return result;
 	}
 
