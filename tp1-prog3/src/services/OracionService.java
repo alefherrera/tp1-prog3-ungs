@@ -1,7 +1,10 @@
 package services;
 
+import models.Adjetivo;
 import models.Esquema;
 import models.Palabra;
+import models.Verbo;
+import enums.Numero;
 import enums.Topico;
 
 public class OracionService {
@@ -17,7 +20,9 @@ public class OracionService {
 	private OracionService() {
 
 	}
-
+	
+	
+	
 	public String GenerarOracion(Topico tema) {
 		RandomService rs = RandomService.getInstance();
 		Esquema esquema = rs.randomEsquema();
@@ -25,8 +30,25 @@ public class OracionService {
 		String result = new String();
 		PalabraService pal  = PalabraService.getInstance();
 		
+		Palabra palabra;
+		Numero num = null;
+		Boolean adj,sus,ver;
+		adj = sus = ver = false;
 		for (Class<? extends Palabra> p : esquema.getEstructura()) {
-			result += pal.traerPalabra(p) + " " ;
+			if(adj && sus && ver)
+				num = null;
+			
+			palabra = pal.traerPalabra(p,num);
+			num = palabra.getNumero();
+			result += palabra.getTexto() + " ";
+			
+			if (palabra.getClass().equals(Adjetivo.class)) {
+				adj = true;
+			} else if (palabra.getClass().equals(Verbo.class)) {
+				ver = true;
+			} else
+				sus = true;
+		
 		} 
 		return result.substring(0,result.length() - 1) + ".";
 	}
