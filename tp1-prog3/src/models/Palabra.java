@@ -1,8 +1,19 @@
 package models;
 
+import enums.Numero;
+
 public abstract class Palabra {
 
 	protected String texto;
+	protected Numero numero;
+
+	public Numero getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Numero numero) {
+		this.numero = numero;
+	}
 
 	@Override
 	public int hashCode() {
@@ -37,9 +48,10 @@ public abstract class Palabra {
 		this.texto = texto;
 	}
 
-	public Palabra(String texto) {
+	public Palabra(String texto, Numero numero) {
 		super();
 		this.texto = texto;
+		this.numero = numero;
 	}
 
 	public Palabra() {

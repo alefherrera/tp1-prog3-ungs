@@ -26,6 +26,7 @@ import enums.Genero;
 import enums.Numero;
 import enums.Tiempo;
 import enums.Topico;
+import enums.Persona;
 
 public class MainWindow {
 
@@ -37,6 +38,11 @@ public class MainWindow {
 	private JComboBox<Genero> cmbGenero;
 	private JComboBox<Topico> cmbTopico;
 	private JComboBox<Tiempo> cmbTiempo;
+	private JComboBox<Numero> cmbNumeroSustantivo;
+	private JComboBox<Persona> cmbPersonaVerbo;
+	private JComboBox<Numero> cmbNumeroVerbo;
+	private JComboBox<Numero> cmbNumeroAdjetivo;
+	private JComboBox<Persona> cmbPersonaAdjetivo;
 
 	/**
 	 * Launch the application.
@@ -74,7 +80,7 @@ public class MainWindow {
 				PalabraService.getInstance().PersistirTodo();
 			}
 		});
-		frmIngre.setBounds(100, 100, 486, 326);
+		frmIngre.setBounds(100, 100, 1001, 370);
 		frmIngre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmIngre.getContentPane().setLayout(null);
 
@@ -87,14 +93,20 @@ public class MainWindow {
 		frmIngre.getContentPane().add(textSustantivo);
 		textSustantivo.setColumns(10);
 
+		cmbNumeroSustantivo = new JComboBox<Numero>();
+		cmbNumeroSustantivo.setModel(new DefaultComboBoxModel<Numero>(Numero
+				.values()));
+		cmbNumeroSustantivo.setBounds(191, 32, 171, 20);
+		frmIngre.getContentPane().add(cmbNumeroSustantivo);
+
 		cmbGenero = new JComboBox<Genero>();
 		cmbGenero.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
-		cmbGenero.setBounds(191, 32, 84, 20);
+		cmbGenero.setBounds(372, 32, 171, 20);
 		frmIngre.getContentPane().add(cmbGenero);
 
 		cmbTopico = new JComboBox<Topico>();
 		cmbTopico.setModel(new DefaultComboBoxModel<Topico>(Topico.values()));
-		cmbTopico.setBounds(285, 32, 75, 20);
+		cmbTopico.setBounds(553, 32, 171, 20);
 		frmIngre.getContentPane().add(cmbTopico);
 
 		JButton btnAgregarSustantivo = new JButton("Agregar");
@@ -106,18 +118,21 @@ public class MainWindow {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Sustantivo sustantivo = new Sustantivo(
-						textSustantivo.getText(),
-						(Genero) cmbGenero.getSelectedItem(),
-						textSustantivo.getText().toLowerCase().endsWith("s") ? Numero.PLURAL : Numero.SINGULAR ,
-						(Topico) cmbTopico.getSelectedItem());
-				if (PalabraService.getInstance().agregarSustantivo(sustantivo)){
-					lblEstado.setText("La palabra " + sustantivo.getTexto() + " ha sido agregada satisfactoriamente.");
-				}else{
-					lblEstado.setText("La palabra " + sustantivo.getTexto() + " ya se encuentra en el almacén de sustantivos.");
+						textSustantivo.getText(), (Genero) cmbGenero
+								.getSelectedItem(), textSustantivo.getText()
+								.toLowerCase().endsWith("s") ? Numero.PLURAL
+								: Numero.SINGULAR, (Topico) cmbTopico
+								.getSelectedItem());
+				if (PalabraService.getInstance().agregarSustantivo(sustantivo)) {
+					lblEstado.setText("La palabra " + sustantivo.getTexto()
+							+ " ha sido agregada satisfactoriamente.");
+				} else {
+					lblEstado.setText("La palabra " + sustantivo.getTexto()
+							+ " ya se encuentra en el almacén de sustantivos.");
 				}
 			}
 		});
-		btnAgregarSustantivo.setBounds(370, 31, 89, 23);
+		btnAgregarSustantivo.setBounds(896, 31, 89, 23);
 		frmIngre.getContentPane().add(btnAgregarSustantivo);
 
 		JLabel lblVerbo = new JLabel("Verbo");
@@ -129,9 +144,15 @@ public class MainWindow {
 		frmIngre.getContentPane().add(textVerbo);
 		textVerbo.setColumns(10);
 
+		cmbNumeroVerbo = new JComboBox<Numero>();
+		cmbNumeroVerbo.setModel(new DefaultComboBoxModel<Numero>(Numero
+				.values()));
+		cmbNumeroVerbo.setBounds(191, 88, 171, 20);
+		frmIngre.getContentPane().add(cmbNumeroVerbo);
+
 		cmbTiempo = new JComboBox<Tiempo>();
 		cmbTiempo.setModel(new DefaultComboBoxModel<Tiempo>(Tiempo.values()));
-		cmbTiempo.setBounds(191, 88, 84, 20);
+		cmbTiempo.setBounds(372, 88, 171, 20);
 		frmIngre.getContentPane().add(cmbTiempo);
 
 		JButton btnAgregarVerbo = new JButton("Agregar");
@@ -139,15 +160,25 @@ public class MainWindow {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Verbo verbo = new Verbo(textVerbo.getText(), (Tiempo) cmbTiempo
+						.getSelectedItem(), (Persona) cmbPersonaVerbo
+						.getSelectedItem(), (Numero) cmbNumeroVerbo
 						.getSelectedItem());
-				if (PalabraService.getInstance().agregarVerbo(verbo)){
-					lblEstado.setText("La palabra " + verbo.getTexto() + " ha sido agregada satisfactoriamente.");
-				}else{
-					lblEstado.setText("La palabra " + verbo.getTexto() + " ya se encuentra en el almacén de verbos.");
+				if (PalabraService.getInstance().agregarVerbo(verbo)) {
+					lblEstado.setText("La palabra " + verbo.getTexto()
+							+ " ha sido agregada satisfactoriamente.");
+				} else {
+					lblEstado.setText("La palabra " + verbo.getTexto()
+							+ " ya se encuentra en el almacén de verbos.");
 				}
 			}
 		});
-		btnAgregarVerbo.setBounds(370, 87, 89, 23);
+
+		cmbPersonaVerbo = new JComboBox<Persona>();
+		cmbPersonaVerbo.setModel(new DefaultComboBoxModel<Persona>(Persona
+				.values()));
+		cmbPersonaVerbo.setBounds(553, 88, 171, 20);
+		frmIngre.getContentPane().add(cmbPersonaVerbo);
+		btnAgregarVerbo.setBounds(896, 87, 89, 23);
 		frmIngre.getContentPane().add(btnAgregarVerbo);
 
 		JLabel lblAdjetivo = new JLabel("Adjetivo");
@@ -163,17 +194,33 @@ public class MainWindow {
 		btnAgregarAdjetivo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText());
-				if (PalabraService.getInstance().agregarAdjetivo(adjetivo)){
-					lblEstado.setText("La palabra " + adjetivo.getTexto() + " ha sido agregada satisfactoriamente.");
-				}else{
-					lblEstado.setText("La palabra " + adjetivo.getTexto() + " ya se encuentra en el almacén de adjetivos.");
+				Adjetivo adjetivo = new Adjetivo(textAdjetivo.getText(),
+						(Persona) cmbPersonaAdjetivo.getSelectedItem(),
+						(Numero) cmbNumeroAdjetivo.getSelectedItem());
+				if (PalabraService.getInstance().agregarAdjetivo(adjetivo)) {
+					lblEstado.setText("La palabra " + adjetivo.getTexto()
+							+ " ha sido agregada satisfactoriamente.");
+				} else {
+					lblEstado.setText("La palabra " + adjetivo.getTexto()
+							+ " ya se encuentra en el almacén de adjetivos.");
 				}
 			}
 		});
-		btnAgregarAdjetivo.setBounds(370, 143, 89, 23);
+
+		cmbNumeroAdjetivo = new JComboBox<Numero>();
+		cmbNumeroAdjetivo.setModel(new DefaultComboBoxModel<Numero>(Numero
+				.values()));
+		cmbNumeroAdjetivo.setBounds(191, 144, 171, 20);
+		frmIngre.getContentPane().add(cmbNumeroAdjetivo);
+
+		cmbPersonaAdjetivo = new JComboBox<Persona>();
+		cmbPersonaAdjetivo.setModel(new DefaultComboBoxModel<Persona>(Persona
+				.values()));
+		cmbPersonaAdjetivo.setBounds(372, 144, 171, 20);
+		frmIngre.getContentPane().add(cmbPersonaAdjetivo);
+		btnAgregarAdjetivo.setBounds(896, 143, 89, 23);
 		frmIngre.getContentPane().add(btnAgregarAdjetivo);
-		
+
 		JButton btnPersistir = new JButton("Persistir");
 		btnPersistir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -181,18 +228,19 @@ public class MainWindow {
 				PalabraService.getInstance().PersistirTodo();
 			}
 		});
-		btnPersistir.setBounds(370, 211, 89, 23);
+		btnPersistir.setBounds(896, 211, 89, 23);
 		frmIngre.getContentPane().add(btnPersistir);
-		
+
 		JPanel panel = new JPanel();
-		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null,
+				null));
 		panel.setBounds(0, 266, 480, 31);
 		frmIngre.getContentPane().add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-		
+
 		lblEstado = new JLabel("Ingrese un sustantivo, verbo o adjetivo");
 		panel.add(lblEstado);
-		
+
 		JButton btnAgregarEsquema = new JButton("Agregar esquema");
 		btnAgregarEsquema.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
