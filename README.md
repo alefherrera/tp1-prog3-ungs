@@ -21,3 +21,7 @@ describa la implementaci´on y se detallen las decisiones tomadas durante el des
 un diagrama de las clases utilizadas y las relaciones entre ellas. El trabajo pr´actico se puede
 hacer en grupos de hasta tres personas.
 Fecha de entrega: Jueves 16 de abril.
+
+# ObjectAID - Generador de UML para las clases
+Buscar desde esta pagina http://www.objectaid.com/class-diagram
+Poner Install new Software en el Eclipse con esta URL http://www.objectaid.net/update e instalar
