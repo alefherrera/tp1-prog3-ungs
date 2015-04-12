@@ -3,6 +3,8 @@ package views;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,11 +21,14 @@ import services.OracionService;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JComboBox;
+
 public class FraseFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblFrase;
 	private JButton btnFrases;
+	private JComboBox cmbTopico;
 
 	/**
 	 * Launch the application.
@@ -49,20 +54,28 @@ public class FraseFrame extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		btnFrases = new JButton("Frases");
+		cmbTopico = new JComboBox<Topico>();
+		cmbTopico.setBounds(72, 12, 96, 20);
+		cmbTopico.setModel(new DefaultComboBoxModel<Topico>(Topico.values()));
+		contentPane.add(cmbTopico);
+		
+		btnFrases = new JButton("Generar");
+		btnFrases.setBounds(274, 11, 155, 23);
 		btnFrases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				OracionService os = OracionService.getInstance();
-				lblFrase.setText("Frase: " + os.GenerarOracion(Topico.ACCION));	
+				lblFrase.setText("Frase: " + os.GenerarOracion((Topico) cmbTopico.getSelectedItem()));	
 			}
 		});
-		contentPane.add(btnFrases, BorderLayout.NORTH);
+		contentPane.setLayout(null);
+		contentPane.add(btnFrases);
 		
 		lblFrase = new JLabel("Frase:");
-		contentPane.add(lblFrase, BorderLayout.CENTER);
+		lblFrase.setBounds(5, 28, 424, 228);
+		contentPane.add(lblFrase);
+		
+		
 	}
-
 }

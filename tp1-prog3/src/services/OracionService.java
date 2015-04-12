@@ -23,7 +23,7 @@ public class OracionService {
 	
 	
 	
-	public String GenerarOracion(Topico tema) {
+	public String GenerarOracion(Topico topico) {
 		RandomService rs = RandomService.getInstance();
 		Esquema esquema = rs.randomEsquema();
 		
@@ -38,7 +38,7 @@ public class OracionService {
 			if(adj && sus && ver)
 				num = null;
 			
-			palabra = pal.traerPalabra(p,num);
+			palabra = pal.traerPalabra(p,num,topico);
 			num = palabra.getNumero();
 			result += palabra.getTexto() + " ";
 			

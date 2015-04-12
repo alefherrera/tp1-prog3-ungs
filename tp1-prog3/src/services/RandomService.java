@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 import models.Esquema;
 import models.Palabra;
+import models.Sustantivo;
 import enums.Numero;
+import enums.Topico;
 
 public class RandomService {
 	private static RandomService instance;
@@ -27,14 +29,28 @@ public class RandomService {
 		return esq.get(new Random().nextInt(esq.size()));
 	}
 
-	public Palabra randomPalabra(List<? extends Palabra> arr, Numero numero) {
-
+	public Palabra randomPalabra(List<? extends Palabra> arr, Numero numero, Topico topico) {
+		boolean sus = false;
+		List<Sustantivo> auxSust = null;
 		List<? extends Palabra> aux = arr;
-		if (numero != null)
+		
+		if(arr.get(0).getClass().equals(Sustantivo.class))
 		{
+			sus = true;
+			auxSust = (List<Sustantivo>) arr;
+			if (numero != null){
+				auxSust = auxSust.stream().filter(x-> x.getNumero() == numero && x.getTopico() == topico).collect(Collectors.toList());;
+			}
+			else{
+				auxSust = auxSust.stream().filter(x-> x.getTopico() == topico).collect(Collectors.toList());;
+			}
+		} 
+		else if (numero != null){
+			
 			 aux = arr.stream().filter(x-> x.getNumero() == numero).collect(Collectors.toList());;
+			
 		}
-		return aux.get(new Random().nextInt(aux.size()));
+		return sus ? auxSust.get(new Random().nextInt(auxSust.size())) : aux.get(new Random().nextInt(aux.size()));
 	}
 
 }

@@ -11,6 +11,7 @@ import models.Palabra;
 import models.Sustantivo;
 import models.Verbo;
 import enums.Numero;
+import enums.Topico;
 
 public class PalabraService {
 
@@ -83,18 +84,18 @@ public class PalabraService {
 		}
 	}
 
-	public Palabra traerPalabra(Class<? extends Palabra> c, Numero numero) {
+	public Palabra traerPalabra(Class<? extends Palabra> c, Numero numero,Topico topico) {
 		RandomService rs = RandomService.getInstance();
 
 		if (c.equals(Adjetivo.class)) {
-			return rs.randomPalabra(adjetivos, numero);
+			return rs.randomPalabra(adjetivos, numero, topico);
 		} else if (c.equals(Verbo.class)) {
-			return rs.randomPalabra(verbos, numero);
+			return rs.randomPalabra(verbos, numero, topico);
 		} else
-			return rs.randomPalabra(sustantivos, numero);
+			return rs.randomPalabra(sustantivos, numero, topico);
 	}
 
-	public Palabra traerPalabra(Class<? extends Palabra> c) {
+	public Palabra traerPalabra(Class<? extends Palabra> c,Topico topico) {
 		return traerPalabra(c, null);
 	}
 
