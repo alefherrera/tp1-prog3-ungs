@@ -2,6 +2,7 @@ package services;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import models.Esquema;
 import models.Palabra;
@@ -27,11 +28,13 @@ public class RandomService {
 	}
 
 	public Palabra randomPalabra(List<? extends Palabra> arr, Numero numero) {
-		Palabra result = null;
-		do {
-			result = arr.get(new Random().nextInt(arr.size()));
-		} while (result.getNumero() != numero && numero != null);
-		return result;
+
+		List<? extends Palabra> aux = arr;
+		if (numero != null)
+		{
+			 aux = arr.stream().filter(x-> x.getNumero() == numero).collect(Collectors.toList());;
+		}
+		return aux.get(new Random().nextInt(aux.size()));
 	}
 
 }
