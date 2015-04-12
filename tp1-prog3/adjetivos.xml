@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_40" class="java.beans.XMLDecoder">
+<java version="1.8.0_31" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="models.Adjetivo">
@@ -61,6 +61,29 @@
     </void>
     <void property="texto">
      <string>hambriento</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object class="java.lang.Enum" id="Numero1" method="valueOf">
+      <class>enums.Numero</class>
+      <string>PLURAL</string>
+     </object>
+    </void>
+    <void property="texto">
+     <string>lindos</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>buenos</string>
     </void>
    </object>
   </void>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_31" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="models.Esquema" id="Esquema0">
+    <void property="estructura">
+     <void method="add">
+      <class>models.Sustantivo</class>
+     </void>
+     <void method="add">
+      <class>models.Adjetivo</class>
+     </void>
+     <void method="add">
+      <class>models.Verbo</class>
+     </void>
+     <void method="add">
+      <class>models.Sustantivo</class>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Esquema" id="Esquema1">
+    <void property="estructura">
+     <void method="add">
+      <class>models.Sustantivo</class>
+     </void>
+     <void method="add">
+      <class>models.Verbo</class>
+     </void>
+     <void method="add">
+      <class>models.Sustantivo</class>
+     </void>
+     <void method="add">
+      <class>models.Adjetivo</class>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
