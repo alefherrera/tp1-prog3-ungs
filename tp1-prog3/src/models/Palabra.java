@@ -39,6 +39,12 @@ public abstract class Palabra {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return texto;
+	}
 
 	public String getTexto() {
 		return texto;
