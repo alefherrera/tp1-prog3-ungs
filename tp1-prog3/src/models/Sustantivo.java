@@ -37,23 +37,15 @@ public class Sustantivo extends Palabra {
 	
 	@Override
 	public String toString() {
-		String aux = texto.substring(texto.length() -1, texto.length());
-		if(aux.equals("s"))
-			aux = texto.substring(texto.length() -2, texto.length());
-		
-		switch(aux){
-		case "a":
-			return "la " + texto;
-		case "as":
-			return "las " + texto;
-		case "o":
+		if(numero == Numero.SINGULAR && genero == Genero.MASCULINO)
 			return "el " + texto;
-		case "os":
-		case "es":
-			return "los " + texto;	
-		default:
-			return texto;
-		}
+		if(numero == Numero.SINGULAR && genero == Genero.FEMENINO)
+			return "la " + texto;
+		if(numero == Numero.PLURAL && genero == Genero.MASCULINO)
+			return "los " + texto;
+		if(numero == Numero.PLURAL && genero == Genero.FEMENINO)
+			return "las " + texto;
+		return texto;
 	}
 	
 }
