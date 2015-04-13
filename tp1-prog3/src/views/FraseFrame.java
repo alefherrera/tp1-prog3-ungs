@@ -27,6 +27,7 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JTextField;
 
 public class FraseFrame extends JFrame {
 
@@ -36,6 +37,7 @@ public class FraseFrame extends JFrame {
 	private JComboBox cmbTopico;
 	private JScrollPane scrollPane;
 	private JList listOraciones;
+	private JTextField txtCantidad;
 
 	public class CustomModel<T> implements ListModel<T> {
 		private List<T> source;
@@ -103,10 +105,13 @@ public class FraseFrame extends JFrame {
 		btnFrases.setBounds(274, 11, 155, 23);
 		btnFrases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				Integer cantidad = Integer.parseInt(txtCantidad.getText());
+				
 				OracionService os = OracionService.getInstance();
 				listOraciones.setModel(new CustomModel<String>(os
 						.GenerarOraciones((Topico) cmbTopico.getSelectedItem(),
-								50)));
+								cantidad)));
 				// lblFrase.setText("Frase: " + os.GenerarOracion((Topico)
 				// cmbTopico.getSelectedItem()));
 			}
@@ -124,6 +129,11 @@ public class FraseFrame extends JFrame {
 
 		listOraciones = new JList();
 		scrollPane.setViewportView(listOraciones);
+		
+		txtCantidad = new JTextField();
+		txtCantidad.setBounds(178, 12, 39, 20);
+		contentPane.add(txtCantidad);
+		txtCantidad.setColumns(10);
 
 	}
 }
