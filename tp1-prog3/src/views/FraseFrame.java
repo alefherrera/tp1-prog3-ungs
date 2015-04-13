@@ -3,6 +3,7 @@ package views;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
@@ -25,6 +26,23 @@ import javax.swing.ListModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListModel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListDataListener;
 
 import services.OracionService;
@@ -161,4 +179,6 @@ public class FraseFrame extends JFrame {
 		txtCantidad.setColumns(10);
 
 	}
+	
+
 }

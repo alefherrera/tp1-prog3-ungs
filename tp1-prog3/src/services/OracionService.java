@@ -49,7 +49,7 @@ public class OracionService {
 			
 			palabra = pal.traerPalabra(p,num,topico);
 			num = palabra.getNumero();
-			result += palabra.getTexto() + " ";
+			result += palabra.toString() + " ";
 			
 			if (palabra.getClass().equals(Adjetivo.class)) {
 				adj = true;
