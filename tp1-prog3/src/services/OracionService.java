@@ -1,5 +1,8 @@
 package services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Adjetivo;
 import models.Esquema;
 import models.Palabra;
@@ -21,7 +24,13 @@ public class OracionService {
 
 	}
 	
-	
+	public List<String> GenerarOraciones(Topico topico, Integer cantidad){
+		List<String> result = new ArrayList<String>();
+		for (int i = 0; i < cantidad; i++) {
+			result.add(GenerarOracion(topico));
+		}
+		return result;
+	}
 	
 	public String GenerarOracion(Topico topico) {
 		RandomService rs = RandomService.getInstance();
