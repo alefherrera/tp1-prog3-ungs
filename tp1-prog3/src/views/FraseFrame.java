@@ -1,33 +1,34 @@
 package views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.ListModel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListDataListener;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
-import enums.Topico;
-import models.Adjetivo;
-import models.Esquema;
-import models.Sustantivo;
-import models.Verbo;
-import services.OracionService;
-
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListDataListener;
+
+import services.OracionService;
+import enums.Topico;
 
 public class FraseFrame extends JFrame {
 
@@ -105,9 +106,9 @@ public class FraseFrame extends JFrame {
 		btnFrases.setBounds(274, 11, 155, 23);
 		btnFrases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				Integer cantidad = Integer.parseInt(txtCantidad.getText());
-				
+
 				OracionService os = OracionService.getInstance();
 				listOraciones.setModel(new CustomModel<String>(os
 						.GenerarOraciones((Topico) cmbTopico.getSelectedItem(),
@@ -131,6 +132,30 @@ public class FraseFrame extends JFrame {
 		scrollPane.setViewportView(listOraciones);
 		
 		txtCantidad = new JTextField();
+		txtCantidad.setTransferHandler(null);
+		/*txtCantidad.setInputVerifier(new InputVerifier() {
+			@Override
+			public boolean verify(JComponent input) {
+				JTextField tf = (JTextField) input;
+				String cadena = tf.getText();
+				try {// if is number
+					Integer.parseInt(cadena);
+					return true;
+				} catch (NumberFormatException e) {
+					return false;// else then do blah
+				}
+			}
+		});*/
+		txtCantidad.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (!((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)))) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+
 		txtCantidad.setBounds(178, 12, 39, 20);
 		contentPane.add(txtCantidad);
 		txtCantidad.setColumns(10);
