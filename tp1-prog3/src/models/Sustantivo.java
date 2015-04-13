@@ -34,4 +34,25 @@ public class Sustantivo extends Palabra {
 	public Sustantivo() {
 
 	}
+	
+	@Override
+	public String toString() {
+		String aux = texto.substring(texto.length() -1, texto.length());
+		if(aux.equals("s"))
+			aux = texto.substring(texto.length() -2, texto.length());
+		
+		switch(aux){
+		case "a":
+			return "la " + texto;
+		case "as":
+			return "las " + texto;
+		case "o":
+			return "el " + texto;
+		case "os":
+			return "los " + texto;	
+		default:
+			return texto;
+		}
+	}
+	
 }
