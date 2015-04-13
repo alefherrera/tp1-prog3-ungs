@@ -49,6 +49,7 @@ public class Sustantivo extends Palabra {
 		case "o":
 			return "el " + texto;
 		case "os":
+		case "es":
 			return "los " + texto;	
 		default:
 			return texto;
