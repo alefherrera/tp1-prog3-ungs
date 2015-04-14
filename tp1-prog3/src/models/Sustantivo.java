@@ -47,5 +47,10 @@ public class Sustantivo extends Palabra {
 			return "las " + texto;
 		return texto;
 	}
+
+	@Override
+	public int ID() {
+		return 0;
+	}
 	
 }

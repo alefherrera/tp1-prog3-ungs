@@ -24,5 +24,10 @@ public class Adjetivo extends Palabra {
 	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
+	
+	@Override
+	public int ID() {
+		return 1;
+	}
 
 }

@@ -32,4 +32,9 @@ public class Verbo extends Palabra {
 	public Verbo() {
 
 	}
+	
+	@Override
+	public int ID() {
+		return 2;
+	}
 }

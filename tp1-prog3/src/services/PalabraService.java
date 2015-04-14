@@ -10,6 +10,7 @@ import models.Adjetivo;
 import models.Palabra;
 import models.Sustantivo;
 import models.Verbo;
+import enums.Genero;
 import enums.Numero;
 import enums.Topico;
 
@@ -84,19 +85,18 @@ public class PalabraService {
 		}
 	}
 
-	public Palabra traerPalabra(Class<? extends Palabra> c, Numero numero,Topico topico) {
+	public Palabra traerPalabra(Class<? extends Palabra> c, Palabra p, Topico t) {
 		RandomService rs = RandomService.getInstance();
-
 		if (c.equals(Adjetivo.class)) {
-			return rs.randomPalabra(adjetivos, numero, topico);
+			return rs.randomAdjetivo(adjetivos, (Sustantivo)p);
 		} else if (c.equals(Verbo.class)) {
-			return rs.randomPalabra(verbos, numero, topico);
+			return rs.randomVerbo(verbos, p);
 		} else
-			return rs.randomPalabra(sustantivos, numero, topico);
+			return rs.randomSustantivo(sustantivos, t);
 	}
 
-	public Palabra traerPalabra(Class<? extends Palabra> c,Topico topico) {
-		return traerPalabra(c, null);
+	public Palabra traerPalabra(Class<? extends Palabra> c, Topico t) {
+		return traerPalabra(c, null, t);
 	}
 
 	private <T> void ensureFile(String fileName, T list) {

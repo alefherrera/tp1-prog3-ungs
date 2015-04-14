@@ -3,11 +3,8 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Adjetivo;
 import models.Esquema;
 import models.Palabra;
-import models.Verbo;
-import enums.Numero;
 import enums.Topico;
 
 public class OracionService {
@@ -23,43 +20,38 @@ public class OracionService {
 	private OracionService() {
 
 	}
-	
-	public List<String> GenerarOraciones(Topico topico, Integer cantidad){
+
+	public List<String> GenerarOraciones(Topico topico, Integer cantidad) {
 		List<String> result = new ArrayList<String>();
 		for (int i = 0; i < cantidad; i++) {
 			result.add(GenerarOracion(topico));
 		}
 		return result;
 	}
-	
+
 	public String GenerarOracion(Topico topico) {
 		RandomService rs = RandomService.getInstance();
 		Esquema esquema = rs.randomEsquema();
-		
-		String result = new String();
-		PalabraService pal  = PalabraService.getInstance();
-		
-		Palabra palabra;
-		Numero num = null;
-		Boolean adj,sus,ver;
-		adj = sus = ver = false;
+
+		List<String> r = new ArrayList<String>();
+		PalabraService pal = PalabraService.getInstance();
+
+		Palabra filtro = null;
+		//Numero num = null;
+		Boolean cond[] = { false, false, false };
 		for (Class<? extends Palabra> p : esquema.getEstructura()) {
-			if(adj && sus && ver)
-				num = null;
-			
-			palabra = pal.traerPalabra(p,num,topico);
-			num = palabra.getNumero();
-			result += palabra.toString() + " ";
-			
-			if (palabra.getClass().equals(Adjetivo.class)) {
-				adj = true;
-			} else if (palabra.getClass().equals(Verbo.class)) {
-				ver = true;
-			} else
-				sus = true;
-		
-		} 
-		return result.substring(0,result.length() - 1) + ".";
+			if (cond[0] && cond[1] && cond[2])
+			{
+				filtro = null;
+				cond[0] = cond[1] = cond[2] = false;
+			}
+			Palabra pa = pal.traerPalabra(p, filtro, topico);
+			if (pa.ID() == 0)
+				filtro = pa;
+			r.add(pa.toString());
+			cond[pa.ID()] = true;
+		}
+		return String.join(" ", r) + ".";
 	}
 
 }

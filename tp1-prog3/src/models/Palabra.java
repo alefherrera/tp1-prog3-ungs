@@ -63,5 +63,7 @@ public abstract class Palabra {
 	public Palabra() {
 
 	}
+	
+	public abstract int ID();
 
 }
