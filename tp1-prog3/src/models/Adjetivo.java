@@ -10,6 +10,7 @@ public class Adjetivo extends Palabra {
 
 	public Adjetivo(String texto, Genero genero, Numero numero) {
 		super(texto, numero);
+		this.genero = genero;
 		this.numero = numero;
 	}
 

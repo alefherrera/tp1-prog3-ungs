@@ -65,8 +65,8 @@ public class RandomService {
 		List<Adjetivo> aux = arr;
 		aux = aux
 				.stream()
-				.filter(x -> x.getNumero() == p.getNumero())
-						//&& x.getGenero() == p.getGenero())
+				.filter(x -> x.getNumero() == p.getNumero()
+						&& x.getGenero() == p.getGenero())
 				.collect(Collectors.toList());
 		return random(aux);
 	}
