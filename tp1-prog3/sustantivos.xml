@@ -214,5 +214,37 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>wacho</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico1"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>wacha</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico1"/>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

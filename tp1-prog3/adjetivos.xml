@@ -3,51 +3,17 @@
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="models.Adjetivo">
+    <void property="genero">
+     <object class="java.lang.Enum" id="Genero0" method="valueOf">
+      <class>enums.Genero</class>
+      <string>MASCULINO</string>
+     </object>
+    </void>
     <void property="numero">
      <object class="java.lang.Enum" id="Numero0" method="valueOf">
       <class>enums.Numero</class>
       <string>SINGULAR</string>
      </object>
-    </void>
-    <void property="texto">
-     <string>rudo</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>gordo</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>flaco</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>lindo</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero0"/>
     </void>
     <void property="texto">
      <string>feo</string>
@@ -56,39 +22,12 @@
   </void>
   <void method="add">
    <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>hambriento</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object class="java.lang.Enum" id="Numero1" method="valueOf">
-      <class>enums.Numero</class>
-      <string>PLURAL</string>
+    <void property="genero">
+     <object class="java.lang.Enum" id="Genero1" method="valueOf">
+      <class>enums.Genero</class>
+      <string>FEMENINO</string>
      </object>
     </void>
-    <void property="texto">
-     <string>lindos</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
-    <void property="numero">
-     <object idref="Numero1"/>
-    </void>
-    <void property="texto">
-     <string>buenos</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Adjetivo">
     <void property="numero">
      <object idref="Numero0"/>
     </void>
@@ -99,8 +38,14 @@
   </void>
   <void method="add">
    <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
     <void property="numero">
-     <object idref="Numero1"/>
+     <object class="java.lang.Enum" id="Numero1" method="valueOf">
+      <class>enums.Numero</class>
+      <string>PLURAL</string>
+     </object>
     </void>
     <void property="texto">
      <string>feas</string>
@@ -109,21 +54,92 @@
   </void>
   <void method="add">
    <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
     <void property="numero">
      <object idref="Numero1"/>
     </void>
     <void property="texto">
-     <string>lindas</string>
+     <string>gordas</string>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>fofas</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
     <void property="numero">
      <object idref="Numero0"/>
     </void>
     <void property="texto">
-     <string>linda</string>
+     <string>fofa</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>trola</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>turro</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>piola</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Adjetivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>feos</string>
     </void>
    </object>
   </void>

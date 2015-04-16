@@ -7,6 +7,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 
 public class PersistenciaService {
 
@@ -19,7 +20,7 @@ public class PersistenciaService {
 	}
 
 	private PersistenciaService() {
-		
+
 	}
 
 	public <T> void put(T obj, String filename) throws FileNotFoundException {
@@ -35,6 +36,20 @@ public class PersistenciaService {
 		T o = (T) decoder.readObject();
 		decoder.close();
 		return o;
+	}
+
+	public void save(String text, String fileName) {
+		PrintWriter out = null;
+		try {
+			out = new PrintWriter(fileName);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (out != null) {
+			out.println(text);
+			out.close();
+		}
 	}
 
 }
