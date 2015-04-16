@@ -272,5 +272,15 @@ public class MainWindow {
 		});
 		btnAgregarEsquema.setBounds(10, 211, 135, 23);
 		frmIngre.getContentPane().add(btnAgregarEsquema);
+		
+		JButton btnGenerarFrases = new JButton("Generar Frases");
+		btnGenerarFrases.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FraseFrame newWindow = new FraseFrame();
+				newWindow.setVisible(true);
+			}
+		});
+		btnGenerarFrases.setBounds(402, 211, 191, 23);
+		frmIngre.getContentPane().add(btnGenerarFrases);
 	}
 }

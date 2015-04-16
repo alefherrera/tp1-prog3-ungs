@@ -114,7 +114,7 @@ public class FraseFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public FraseFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 511, 341);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -129,7 +129,10 @@ public class FraseFrame extends JFrame {
 		btnFrases.setBounds(330, 11, 155, 23);
 		btnFrases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
+				if (txtCantidad.getText().isEmpty())
+					return;
+				
 				Integer cantidad = Integer.parseInt(txtCantidad.getText());
 				OracionService os = OracionService.getInstance();
 				oraciones = os.GenerarOraciones(
