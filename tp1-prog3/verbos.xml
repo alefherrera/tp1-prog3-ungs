@@ -16,80 +16,29 @@
      </object>
     </void>
     <void property="texto">
-     <string>mato</string>
+     <string>corre</string>
     </void>
     <void property="tiempo">
      <object class="java.lang.Enum" id="Tiempo0" method="valueOf">
       <class>enums.Tiempo</class>
-      <string>PASADO</string>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Verbo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="persona">
-     <object idref="Persona0"/>
-    </void>
-    <void property="texto">
-     <string>corrio</string>
-    </void>
-    <void property="tiempo">
-     <object idref="Tiempo0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Verbo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="persona">
-     <object idref="Persona0"/>
-    </void>
-    <void property="texto">
-     <string>ataco</string>
-    </void>
-    <void property="tiempo">
-     <object idref="Tiempo0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Verbo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="persona">
-     <object idref="Persona0"/>
-    </void>
-    <void property="texto">
-     <string>mordio</string>
-    </void>
-    <void property="tiempo">
-     <object idref="Tiempo0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Verbo">
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="persona">
-     <object idref="Persona0"/>
-    </void>
-    <void property="texto">
-     <string>muere</string>
-    </void>
-    <void property="tiempo">
-     <object class="java.lang.Enum" method="valueOf">
-      <class>enums.Tiempo</class>
       <string>PRESENTE</string>
      </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>juega</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
     </void>
    </object>
   </void>
@@ -105,7 +54,7 @@
      <object idref="Persona0"/>
     </void>
     <void property="texto">
-     <string>mataron</string>
+     <string>juegan</string>
     </void>
     <void property="tiempo">
      <object idref="Tiempo0"/>
@@ -121,7 +70,103 @@
      <object idref="Persona0"/>
     </void>
     <void property="texto">
-     <string>comieron</string>
+     <string>saltan</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>salta</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>programa</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>programan</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>es</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>mira</string>
+    </void>
+    <void property="tiempo">
+     <object idref="Tiempo0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Verbo">
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="persona">
+     <object idref="Persona0"/>
+    </void>
+    <void property="texto">
+     <string>miran</string>
     </void>
     <void property="tiempo">
      <object idref="Tiempo0"/>

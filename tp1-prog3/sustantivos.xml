@@ -48,54 +48,6 @@
   <void method="add">
    <object class="models.Sustantivo">
     <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero1"/>
-    </void>
-    <void property="texto">
-     <string>gatos</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero1"/>
-    </void>
-    <void property="texto">
-     <string>ratas</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero1"/>
-    </void>
-    <void property="texto">
-     <string>ratones</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico0"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
      <object class="java.lang.Enum" id="Genero1" method="valueOf">
       <class>enums.Genero</class>
       <string>FEMENINO</string>
@@ -105,13 +57,10 @@
      <object idref="Numero0"/>
     </void>
     <void property="texto">
-     <string>pelota</string>
+     <string>perra</string>
     </void>
     <void property="topico">
-     <object class="java.lang.Enum" id="Topico1" method="valueOf">
-      <class>enums.Topico</class>
-      <string>DEPORTE</string>
-     </object>
+     <object idref="Topico0"/>
     </void>
    </object>
   </void>
@@ -121,64 +70,13 @@
      <object idref="Genero1"/>
     </void>
     <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>camiseta</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico1"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
      <object idref="Numero1"/>
     </void>
     <void property="texto">
-     <string>botines</string>
+     <string>perras</string>
     </void>
     <void property="topico">
-     <object idref="Topico1"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>machete</string>
-    </void>
-    <void property="topico">
-     <object class="java.lang.Enum" id="Topico2" method="valueOf">
-      <class>enums.Topico</class>
-      <string>ACCION</string>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>arma</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico2"/>
+     <object idref="Topico0"/>
     </void>
    </object>
   </void>
@@ -194,7 +92,10 @@
      <string>policia</string>
     </void>
     <void property="topico">
-     <object idref="Topico2"/>
+     <object class="java.lang.Enum" id="Topico1" method="valueOf">
+      <class>enums.Topico</class>
+      <string>ACCION</string>
+     </object>
     </void>
    </object>
   </void>
@@ -204,26 +105,10 @@
      <object idref="Genero0"/>
     </void>
     <void property="numero">
-     <object idref="Numero0"/>
+     <object idref="Numero1"/>
     </void>
     <void property="texto">
-     <string>criminal</string>
-    </void>
-    <void property="topico">
-     <object idref="Topico2"/>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="models.Sustantivo">
-    <void property="genero">
-     <object idref="Genero0"/>
-    </void>
-    <void property="numero">
-     <object idref="Numero0"/>
-    </void>
-    <void property="texto">
-     <string>wacho</string>
+     <string>policias</string>
     </void>
     <void property="topico">
      <object idref="Topico1"/>
@@ -239,10 +124,265 @@
      <object idref="Numero0"/>
     </void>
     <void property="texto">
-     <string>wacha</string>
+     <string>pelota</string>
     </void>
     <void property="topico">
-     <object idref="Topico1"/>
+     <object class="java.lang.Enum" id="Topico2" method="valueOf">
+      <class>enums.Topico</class>
+      <string>DEPORTE</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>pelotas</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico2"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>rosa</string>
+    </void>
+    <void property="topico">
+     <object class="java.lang.Enum" id="Topico3" method="valueOf">
+      <class>enums.Topico</class>
+      <string>ROMANCE</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>rosas</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico3"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>enamorado</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico3"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>enamorados</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico3"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>hombre lobo</string>
+    </void>
+    <void property="topico">
+     <object class="java.lang.Enum" id="Topico4" method="valueOf">
+      <class>enums.Topico</class>
+      <string>TERROR</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>bruja</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico4"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>brujas</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico4"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>mago</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico4"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>artista</string>
+    </void>
+    <void property="topico">
+     <object class="java.lang.Enum" id="Topico5" method="valueOf">
+      <class>enums.Topico</class>
+      <string>ESPECTACULO</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero0"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>artistas</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico5"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>computadora</string>
+    </void>
+    <void property="topico">
+     <object class="java.lang.Enum" id="Topico6" method="valueOf">
+      <class>enums.Topico</class>
+      <string>TECNOLOGIA</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>computadoras</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico6"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero0"/>
+    </void>
+    <void property="texto">
+     <string>tablet</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico6"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="models.Sustantivo">
+    <void property="genero">
+     <object idref="Genero1"/>
+    </void>
+    <void property="numero">
+     <object idref="Numero1"/>
+    </void>
+    <void property="texto">
+     <string>tablets</string>
+    </void>
+    <void property="topico">
+     <object idref="Topico6"/>
     </void>
    </object>
   </void>

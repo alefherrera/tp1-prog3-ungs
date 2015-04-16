@@ -62,13 +62,18 @@ public class RandomService {
 	}
 
 	public Palabra randomAdjetivo(List<Adjetivo> arr, Sustantivo p) {
-		List<Adjetivo> aux = arr;
-		aux = aux
-				.stream()
-				.filter(x -> x.getNumero() == p.getNumero()
-						&& x.getGenero() == p.getGenero())
-				.collect(Collectors.toList());
-		return random(aux);
+		try {
+			List<Adjetivo> aux = arr;
+			aux = aux
+					.stream()
+					.filter(x -> x.getNumero() == p.getNumero()
+							&& x.getGenero() == p.getGenero())
+					.collect(Collectors.toList());
+			return random(aux);
+		} catch (Exception e) {
+			System.out.println("Falta un adjetivo de estos tipos: " + p.getNumero() + p.getGenero());
+		}
+		return null;
 	}
 
 	public Palabra randomVerbo(List<Verbo> arr, Palabra p) {
